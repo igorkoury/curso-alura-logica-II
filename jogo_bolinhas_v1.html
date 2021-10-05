@@ -1,0 +1,38 @@
+<h1>Trocando de cor</h1>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+    pincel.fillStyle = "lightgray";
+    pincel.fillRect(0, 0, 600, 400);
+
+    var cores = ["darkgreen", "Yellow", "red"];
+    var indiceCor = 0;
+
+    function desenhaCirculo(evento) {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        console.log("X: " + x + ", " + "Y: " + y);
+
+        pincel.fillStyle = cores[indiceCor];
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+    }
+
+    function mudaCor() {
+
+        indiceCor++;
+        if(indiceCor >= cores.length) {
+            indiceCor = 0; //retorna para a primeira cor
+        }
+
+        alert(cores[indiceCor]);
+        return false; //para não exibir o menu padrão no canvas
+    }
+
+    tela.oncontextmenu = mudaCor; //quando clicar com o botão direito
+    tela.onclick = desenhaCirculo;
+
+</script>

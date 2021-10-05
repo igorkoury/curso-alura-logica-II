@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+
+        //capturando o canvas do html
+        var tela = document.querySelector("canvas");
+        //criando um pincel para pintar a tela
+        var pincel = tela.getContext("2d");
+
+        //retângulo maior 600x400
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0, 0, 600, 400);
+
+        //desenhando os 3 retângulos 200x400
+        pincel.fillStyle = "green";
+        pincel.fillRect(0, 0, 200, 400);
+        pincel.fillStyle = "lightgray";
+        pincel.fillRect(200, 0, 200, 400);
+        pincel.fillStyle = "red";
+        pincel.fillRect(400, 0, 200, 400);
+
+        //desenhando um triângulo
+        pincel.fillStyle = "yellow";
+        pincel.beginPath();
+        pincel.moveTo(300, 200);
+        pincel.lineTo(200, 400);
+        pincel.lineTo(400, 400);
+        pincel.fill();
+
+        //desenhando uma bola
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(300, 200, 50, 0, 2 * 3.14);
+        pincel.fill();
+
+
+
+    </script>
+    
+</body>
+</html>
